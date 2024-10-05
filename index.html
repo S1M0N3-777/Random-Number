@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sanitize(number){
+            let num = number
+            return num.trim()
+        }
+        function generateRandomInteger(min, max) {
+        let casualNumber = Math.random()
+        casualNumber = casualNumber * max
+        casualNumber = parseInt(casualNumber)
+        return casualNumber
+        }
+
+        function random(min,max,number){
+            let n=0
+            n = Math.random()*max
+            n = parseInt(n)
+            console.log(n)
+            if(number < n ){
+                console.log("Numero troppo basso, riprova")
+            }else{
+                if (number === n){
+                    console.log("Complimenti! Hai vinto")
+                }else{
+                    if (number > n){
+                        console.log("Numero troppoo grande, riprova")
+                    }
+                }
+                
+            }
+        }
+        
+
+        let tent=0 
+        let number = 0
+        let min = 0
+        let max = 100
+        let rnd = 0
+        while(tent < 5 ){
+        number = prompt("Inserisci un numero positivo")
+        number = sanitize(number)
+        console.log(number)
+        while (number < 0 ){
+            console.log("Compila il campo correttamente")
+            number = prompt("Inserisci un numero ")
+            number = sanitize(number)
+        }
+        rnd = random(min,max,number)
+        tent=tent+1
+        }
+        
+
+
+
+
+    </script>
+</body>
+</html>
