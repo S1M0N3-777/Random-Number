@@ -18,9 +18,9 @@
         return casualNumber
         }
 
-        function random(min,max,number){
+        function random(min,max,number,tent){
             let n=0
-            n = Math.random()*max
+            n = Math.random(min,max)*100
             n = parseInt(n)
             console.log(n)
             if(number < n ){
@@ -28,6 +28,7 @@
             }else{
                 if (number === n){
                     console.log("Complimenti! Hai vinto")
+                    tent=5
                 }else{
                     if (number > n){
                         console.log("Numero troppoo grande, riprova")
@@ -36,8 +37,6 @@
                 
             }
         }
-        
-
         let tent=0 
         let number = 0
         let min = 0
@@ -47,12 +46,12 @@
         number = prompt("Inserisci un numero positivo")
         number = sanitize(number)
         console.log(number)
-        while (number < 0 ){
+        while (number < 0 || isNaN(number)){
             console.log("Compila il campo correttamente")
             number = prompt("Inserisci un numero ")
             number = sanitize(number)
         }
-        rnd = random(min,max,number)
+        rnd = random(min,max,number,tent)
         tent=tent+1
         }
         
