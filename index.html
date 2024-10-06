@@ -35,14 +35,12 @@
         while(tent < 5 && indovinato === false ){
         number = prompt("Inserisci un numero positivo")
         console.log(number)
-       /* while(number===null){
-            number = prompt("Inserisci un numero compreso tra 1 e 100")
-        }*/
         while (number < 0 || number > 100 || isNaN(number) || number===null ){
             console.log("Compila il campo correttamente")
             number = prompt("Inserisci un numero compreso tra 1 e 100")
         }
         number = sanitize(number)
+        console.log(number)
         number = parseInt(number)
         if(number === rnd){
             indovinato = true;
