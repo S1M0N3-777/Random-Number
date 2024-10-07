@@ -20,28 +20,32 @@
 
     function random(min,max){
         let n=0
-        n = Math.random()*max
-        n = parseInt(n)
+       // n = Math.random(min,max)*(max-min) In questo modo generiamo un numero compreso tra max e min -1
+       // Per effettuare una generazione corretta: Math.random(min,max)*(max-min+1)
+        n = Math.random(min,max)
+        n=n*(max-min)  
+        n = parseInt(n)+min
         console.log(n)
         return n
-    }
+        }
+ 
         let tent=0 
         let number = 0
-        let min = 0
+        let min = 1
         let max = 100
         let rnd = 0
         let indovinato = false
         rnd = random(min,max)
         while(tent < 5 && indovinato === false ){
-        number = prompt("Inserisci un numero positivo")
+        number = prompt("Inserisci un compreso tra " + min + " e "+max)
         console.log(number)
-        while (number < 0 || number > 100 || isNaN(number) || number===null ){
+        while (number < min || number > max || isNaN(number) || number===null ){
             console.log("Compila il campo correttamente")
-            number = prompt("Inserisci un numero compreso tra 1 e 100")
+            number = prompt("Inserisci un compreso tra " + min + "e "+max)
         }
         number = sanitize(number)
-        console.log(number)
         number = parseInt(number)
+        console.log(number)
         if(number === rnd){
             indovinato = true;
             console.log("Hai indovinato!");
